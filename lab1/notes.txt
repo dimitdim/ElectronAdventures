@@ -1,0 +1,2 @@
+Chosen resistor: 422 Ohm 5 PCS, 1/4 Watt, 1% metal Film resistor
+Keithley 2400 SourceMeter measurement: 419.34 ohm
