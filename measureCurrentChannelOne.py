@@ -9,17 +9,14 @@ def linspace(initial, final, n = 100):
         return []
 
 s = smu.smu()
-vin = linspace(-5, 5, 101)
-f = open('vdivider.csv', 'w')
-f.write('"Vin","Vout"\n')
+v = linspace(-5, 5, 101)
+f = open('resistor.csv', 'w')
+f.write('"V","I"\n')
 
-s.set_current(2, 0.)
-for v in vin:
-    s.set_voltage(1, v)
+for val in v:
+    s.set_voltage(1, val)
     s.autorange(1)
-    s.autorange(2)
-    f.write('{!s},{!s}\n'.format(v, s.get_voltage(2)))
+    f.write('{!s},{!s}\n'.format(val, s.get_current(1)))
 
 s.set_voltage(1, 0.)
-s.set_voltage(2, 0.)
 f.close()
