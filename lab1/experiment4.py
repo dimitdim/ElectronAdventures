@@ -20,11 +20,11 @@ for i in range(0, 4):
         s.set_voltage(1, val)
         s.autorange(1)
         s.autorange(2)
-        measuredVoltage[i] += [i] #[s.get_voltage(2)]
+        measuredVoltage[i] += [s.get_voltage(2)]
 
 for val in v:
     f.write('{!s},{!s},{!s},{!s},{!s}\n'.format(val, measuredVoltage[0].pop(0), measuredVoltage[1].pop(0), measuredVoltage[2].pop(0), measuredVoltage[3].pop(0)))
 
-# s.set_voltage(1, 0.)
-# s.set_voltage(2, 0.)
-# f.close()
+s.set_voltage(1, 0.)
+s.set_voltage(2, 0.)
+f.close()
