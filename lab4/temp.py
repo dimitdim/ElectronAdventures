@@ -8,6 +8,10 @@ s.set_voltage(1, 0)
 # s.set_current(1, 0)
 
 while True:
+    # s.set_current(1, .001)
+    s.autorange(1)
+    s.autorange(2)
+
     print s.get_current(1)
     # print s.get_voltage(1)
 
