@@ -10,16 +10,16 @@ def linspace(initial, final, n = 100):
 
 s = smu.smu()
 Ixy = numpy.logspace(-8, -2, 200)
-f = open('experiment2Source-1K.csv', 'w')
+f = open('experiment2Sink-100k.csv', 'w')
 f.write('"Ix","Iz"\n')
 
 s.set_voltage(2, 0.)
 
 for val in Ixy:
-    s.set_current(1, val*-1)
+    s.set_current(1, val)
     s.autorange(1)
     s.autorange(2)
-    f.write('{!s},{!s}\n'.format(val*-1, s.get_current(2)))
+    f.write('{!s},{!s}\n'.format(val, s.get_current(2)))
 
 
 s.set_voltage(1, 0.)
@@ -32,8 +32,15 @@ f.close()
 # Vin: .205 V 
 
 #Exp 2: Sink in place
-#10k: ~.1mA
-#100k: ~.01mA
+#10k: 
+#100k: 
 
 #Exp 2: Source in place, sweeping sink
-#1k: 
+#100k: 
+#10k: 
+#1k
+
+#Exp 3: sink in place, sweeping sink
+#1k: vin = 3.72
+#100: 
+#10k: 

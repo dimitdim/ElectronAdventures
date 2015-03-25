@@ -9,7 +9,7 @@ def linspace(initial, final, n = 100):
         return []
 
 s = smu.smu()
-i = numpy.logspace(-9, -2, 71)
+i = numpy.logspace(-8, -2, 71)
 f = open('experiment1DataA.csv', 'w')
 f.write('"Iin","V"\n')
 
