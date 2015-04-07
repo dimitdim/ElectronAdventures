@@ -10,8 +10,8 @@ def linspace(initial, final, n = 100):
 s = smu.smu()
 
 v2 = 2.5
-v1 = linspace(v2-.5, v2+.5, 301)
-f = open('experiment1DataV2=2v5.csv', 'w')
+v1 = linspace(v2-1.0, v2+1.0, 401)
+f = open('experiment1DataV2=3v5Vb=3.5.csv', 'w')
 f.write('"V1","V2","I1","I2","V"\n')
 
 measurements = [[],[],[]]
