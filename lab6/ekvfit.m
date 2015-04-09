@@ -83,10 +83,6 @@ function [Is, VT, kappa]=ekvfit(Vg, Isat, epsilon, varargin)
     if min(abs(Isat(SIfirst:SIlast)))<0.1e-6
         warning('Identified a candidate strong-inversion region, but some current levels are lower than typical strong-inversion currents.');
     end
-    WIfirst
-    WIlast
-    SIfirst
-    SIlast
     if SIfirst>WIlast
         first = WIfirst;
         last = SIlast;
@@ -154,21 +150,12 @@ function [Is, VT, kappa]=ekvfit(Vg, Isat, epsilon, varargin)
     [EKVfirst, EKVlast, m, b, N]=linefit(Vg(first:last), log(exp(sqrt(Isat(first:last)/Is))-1), epsilon);
     VT=-b/m;
     kappa=2*m*0.0258;
-    if strcmp(plotting, 'on')==1
-        semilogy(Vg, Isat);
-        temp = axis;
-        semilogy(Vg, Isat, 'b.', Vg(first:last), Isat(first:last), 'r.', Vg, Is*(log(1+exp(kappa*(Vg-VT)/(2*0.0258)))).^2, 'k-');
-        axis(temp);
-        xlabel('{\it V}_G (V)');
-        ylabel('{\it I}_{sat} (A)');
-        title(['EKV Fit: {\it I}_s = ', num2str(Is), 'A, {\it V}_T = ', num2str(VT), 'V, \kappa = ', num2str(kappa)]);
-        pause;
-        plot(Vg, sqrt(abs(Isat)));
-        temp = axis;
-        plot(Vg, sqrt(abs(Isat)), 'b.', Vg(first:last), sqrt(Isat(first:last)), 'r.', Vg, sqrt(Is*(log(1+exp(kappa*(Vg-VT)/(2*0.0258)))).^2), 'k-');
-        axis(temp);
-        xlabel('{\it V}_G (V)');
-        ylabel('{\it I}^{1/2}_{sat} (A^{1/2})');
-        title(['EKV Fit: {\it I}_s = ', num2str(Is), 'A, {\it V}_T = ', num2str(VT), 'V, \kappa = ', num2str(kappa)]);
-        pause;
+
+    semilogy(Vg, Isat);
+    temp = axis;
+    semilogy(Vg, Isat, 'm.', Vg, Is*(log(1+exp(kappa*(Vg-VT)/(2*0.0258)))).^2, 'm-');
+    axis(temp);
+    xlabel('{\it V}_G (V)');
+    ylabel('{\it I}_{sat} (A)');
+    title(['EKV Fit: {\it I}_s = ', num2str(Is), 'A, {\it V}_T = ', num2str(VT), 'V, \kappa = ', num2str(kappa)]);
 end
