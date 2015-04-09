@@ -8,8 +8,8 @@ def linspace(initial, final, n = 100):
         return []
 
 s = smu.smu()
-v = linspace(0, 5, 101)
-f = open('experiment2DataA.csv', 'w')
+v = linspace(0, -5, 101)
+f = open('experiment2DataBD.csv', 'w')
 f.write('"Vs","Ic"\n')
 
 for val in v:

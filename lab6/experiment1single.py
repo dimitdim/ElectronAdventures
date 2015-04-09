@@ -9,10 +9,10 @@ def linspace(initial, final, n = 100):
 
 s = smu.smu()
 v = linspace(0, 5, 501)
-f = open('experiment1DataMOS3.csv', 'w')
+f = open('experiment2temp.csv', 'w')
 f.write('"Vgate","Ichannel"\n')
 
-s.set_voltage(2, 0)
+s.set_voltage(2, 5.0)
 for val in v:
     s.set_voltage(1, val)
     s.autorange(1)
