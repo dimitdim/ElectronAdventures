@@ -8,20 +8,23 @@ def linspace(initial, final, n = 100):
         return []
 
 s = smu.smu()
-v = linspace(-5, 0, 201)
-f = open('experiment1DataB3.csv', 'w')
-f.write('"Vg","Ic"\n')
 
-s.set_voltage(2, -2)
-for val in v:
+v2 = 2.5
+v1 = linspace(v2-.2, v2+.2, 501)
+f = open('experiment2DataA.csv', 'w')
+f.write('"Vout",""\n')
+
+s.set_current(2, 0.)
+for val in v1:
     s.set_voltage(1, val)
     s.autorange(1)
     s.autorange(2)
-    f.write('{!s},{!s}\n'.format(val, -1*s.get_current(2)))
+    f.write('{!s},{!s}\n'.format(val, -1*measurements[0].pop(0)))
+    measurements[0] += [s.get_voltage(2)]
+
+for val in v1:
+    
 
 s.set_voltage(1, 0.)
 s.set_voltage(2, 0.)
 f.close()
-
-# Notes
-# Result for nMOS: EKV Fit: {\it I}_s = 7.1652e-06A, {\it V}_T = 0.58447V, \kappa = 0.40639

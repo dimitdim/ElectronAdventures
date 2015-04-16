@@ -8,11 +8,12 @@ def linspace(initial, final, n = 100):
         return []
 
 s = smu.smu()
-v = linspace(0, 5, 101)
-f = open('experiment3DataCh2-2point5.csv', 'w')
-f.write('"Vs","Ic"\n')
+v = linspace(-5, 0, 101)
+f = open('experiment3pMOSData-5V.csv', 'w')
+f.write('"Vd","Ic"\n')
 
-s.set_voltage(2, 2.5)
+s.set_voltage(2, -5)
+s.autorange(2)
 for val in v:
     s.set_voltage(1, val)
     s.autorange(1)
@@ -20,4 +21,15 @@ for val in v:
 
 s.set_voltage(1, 0.)
 s.set_voltage(2, 0.)
-f.close()           
+f.close()
+
+#nMOS
+#Weak inversion: .45V
+#Moderate inversion: .6V
+#Strong inversion: gate voltage set to 5V
+
+
+#pMOS
+#weak inversion: -.5V
+#moderate inversion: -.65V
+#strong inversion: -5V
