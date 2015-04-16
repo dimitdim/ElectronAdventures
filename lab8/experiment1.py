@@ -11,7 +11,7 @@ s = smu.smu()
 
 # v2 = 2.5
 v1 = linspace(0, 5.0, 501)
-f = open('experiment1DataStrongV2=4v5.csv', 'w')
+f = open('experiment1DataStrongV2=2v5.csv', 'w')
 f.write('"V1","Vout1"\n')
 
 measurements = [[],[],[]]
@@ -37,7 +37,7 @@ f.close()
 #V2 2 = 3.5v
 #V2 3 = 4.5v
 
-#Strong inversion
+#Strong
 #Vb = 1v
 #V2 1 = 2.5v
 #V2 2 = 3.5v

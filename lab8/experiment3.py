@@ -9,22 +9,25 @@ def linspace(initial, final, n = 100):
 
 s = smu.smu()
 
-v2 = 2.5
-v1 = linspace(v2-.2, v2+.2, 501)
-f = open('experiment2DataA.csv', 'w')
-f.write('"Vout",""\n')
+# v2 = 2.5
+v1 = linspace(0, 5.0, 501)
+f = open('experiment3DataB.csv', 'w')
+f.write('"Vin","Vout"\n')
+
+measurements = [[],[],[]]
 
 s.set_current(2, 0.)
+s.set_autorange(1, 1)
+s.set_autorange(2, 1)
+
 for val in v1:
     s.set_voltage(1, val)
-    s.autorange(1)
-    s.autorange(2)
-    f.write('{!s},{!s}\n'.format(val, -1*measurements[0].pop(0)))
     measurements[0] += [s.get_voltage(2)]
 
 for val in v1:
-    
+    f.write('{!s},{!s}\n'.format(val, measurements[0].pop(0)))
 
 s.set_voltage(1, 0.)
 s.set_voltage(2, 0.)
 f.close()
+
