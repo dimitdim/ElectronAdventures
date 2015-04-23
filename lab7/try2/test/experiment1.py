@@ -10,7 +10,7 @@ def linspace(initial, final, n = 100):
 s = smu.smu()
 
 v2 = 2.5
-v1 = linspace(v2-1, v2+1, 501)
+v1 = linspace(v2-1, v2+1, 51)
 f = open('experiment1DataV2=2v5Vb=1v5.csv', 'w')
 f.write('"V1","V2","I1","I2","V"\n')
 
