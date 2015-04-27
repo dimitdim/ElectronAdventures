@@ -20,7 +20,7 @@ s.set_autorange(2, 1)
 
 for val in v1:
     s.set_voltage(1, val)
-    f.write('{!s},{!s}\n'.format(val, ))
+    f.write('{!s},{!s}\n'.format(val, measurements[0].pop(0)))
 
 
 s.set_voltage(1, 0.)
